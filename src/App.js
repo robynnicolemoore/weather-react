@@ -83,7 +83,7 @@ function App() {
         </div>
         <p>
           {" "}
-          <a href="https://elegant-taiyaki-1ddf7c.netlify.app/">
+          <a href="https://github.com/robynnicolemoore/weather-react">
             Open source code
           </a>{" "}
           by Robyn Moore{" "}
