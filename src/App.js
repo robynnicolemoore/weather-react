@@ -19,8 +19,12 @@ function App() {
               />
             </p>
             <form>
-              <input type="search" placeholder="Type a city..." />
-              <input type="submit" value="Search" />
+              <input
+                type="search"
+                placeholder="Type a city..."
+                className="search"
+              />
+              <input type="submit" value="Search" className="searchButton" />
             </form>
           </div>
           <div className="col-6">

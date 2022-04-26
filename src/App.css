@@ -14,3 +14,16 @@ h4 {
 p {
   color: #240046;
 }
+
+.searchButton {
+  color: white;
+  background-color: #757bc8;
+  border-radius: 15px;
+  padding: 8px 12px;
+}
+
+.searchButton:hover {
+  color: #757bc8;
+  background-color: white;
+  transition: 300ms;
+}
