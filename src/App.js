@@ -83,7 +83,11 @@ function App() {
         </div>
         <p>
           {" "}
-          <a href="https://github.com/robynnicolemoore/weather-react">
+          <a
+            href="https://github.com/robynnicolemoore/weather-react"
+            target="_blank"
+            rel="noreferrer"
+          >
             Open source code
           </a>{" "}
           by Robyn Moore{" "}
