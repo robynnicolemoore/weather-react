@@ -6,7 +6,7 @@ function App() {
     <div className="Container">
       <div className="App">
         <div className="row">
-          <div className="col-6">
+          <div className="col-4">
             <h1>Madrid</h1>
             <h2>Currently 65°F</h2>
             <p>Last updated: time</p>
@@ -26,6 +26,12 @@ function App() {
               />
               <input type="submit" value="Search" className="searchButton" />
             </form>
+          </div>
+          <div className="col-2">
+            <ul>
+              <li className="weatherDetails">Humidity: 0% </li>
+              <li className="weatherDetails">Wind Speed: 0mph</li>
+            </ul>
           </div>
           <div className="col-6">
             <h4>Monday</h4>
@@ -75,6 +81,13 @@ function App() {
             <br />
           </div>
         </div>
+        <p>
+          {" "}
+          <a href="https://elegant-taiyaki-1ddf7c.netlify.app/">
+            Open source code
+          </a>{" "}
+          by Robyn Moore{" "}
+        </p>
       </div>
     </div>
   );

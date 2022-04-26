@@ -27,3 +27,9 @@ p {
   background-color: white;
   transition: 300ms;
 }
+.weatherDetails {
+  padding-top: 30px;
+  text-align: left;
+  color: #240046;
+  font-size: 20px;
+}
