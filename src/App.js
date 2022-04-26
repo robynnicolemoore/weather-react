@@ -1,23 +1,77 @@
-import logo from './logo.svg';
-import './App.css';
-
+import "./App.css";
+import ReactAnimatedWeather from "react-animated-weather";
+import "bootstrap/dist/css/bootstrap.min.css";
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="Container">
+      <div className="App">
+        <div className="row">
+          <div className="col-6">
+            <h1>Madrid</h1>
+            <h2>Currently 65°F</h2>
+            <p>Last updated: time</p>
+            <p>
+              <ReactAnimatedWeather
+                icon={"CLEAR_DAY"}
+                color={"goldenrod"}
+                size={200}
+                animate={true}
+              />
+            </p>
+            <form>
+              <input type="search" placeholder="Type a city..." />
+              <input type="submit" value="Search" />
+            </form>
+          </div>
+          <div className="col-6">
+            <h4>Monday</h4>
+            <ReactAnimatedWeather
+              icon={"CLEAR_DAY"}
+              color={"goldenrod"}
+              size={30}
+              animate={true}
+            />
+            <p> 65°F | 82°F</p>
+            <br />
+            <h4>Tuesday</h4>
+            <ReactAnimatedWeather
+              icon={"CLEAR_DAY"}
+              color={"goldenrod"}
+              size={30}
+              animate={true}
+            />
+            <p> 65°F | 82°F</p>
+            <br />
+            <h4>Wednesday</h4>
+            <ReactAnimatedWeather
+              icon={"CLEAR_DAY"}
+              color={"goldenrod"}
+              size={30}
+              animate={true}
+            />
+            <p> 65°F | 82°F</p>
+            <br />
+            <h4>Thursday</h4>
+            <ReactAnimatedWeather
+              icon={"CLEAR_DAY"}
+              color={"goldenrod"}
+              size={30}
+              animate={true}
+            />
+            <p> 65°F | 82°F</p>
+            <br />
+            <h4>Friday</h4>
+            <ReactAnimatedWeather
+              icon={"CLEAR_DAY"}
+              color={"goldenrod"}
+              size={30}
+              animate={true}
+            />
+            <p> 65°F | 82°F</p>
+            <br />
+          </div>
+        </div>
+      </div>
     </div>
   );
 }
