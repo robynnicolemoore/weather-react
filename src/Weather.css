@@ -1,0 +1,47 @@
+* {
+  font-family: "Oswald", sans-serif;
+}
+.card-body {
+  width: 800px;
+  padding: 20px;
+  padding-right: 0;
+  border: 1px solid #e7deff;
+}
+
+h1,
+h2,
+h4 {
+  color: #757bc8;
+}
+
+p {
+  color: #240046;
+}
+.search {
+  height: 42px;
+  padding-right: 10px;
+}
+.searchButton {
+  color: white;
+  background-color: #757bc8;
+  float: right;
+  border-radius: 15px;
+  padding: 8px 15px;
+  font-size: 20px;
+}
+
+.searchButton:hover {
+  color: #757bc8;
+  background-color: white;
+  transition: 300ms;
+}
+.weatherDetails {
+  padding-top: 30px;
+  text-align: left;
+  color: #240046;
+  font-size: 20px;
+}
+
+.forecast {
+  text-align: center;
+}
