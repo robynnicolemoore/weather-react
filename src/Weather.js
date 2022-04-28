@@ -12,16 +12,16 @@ export default function Weather(props) {
       ready: true,
     });
     setWeatherData({
+      ready: true,
       temperature: response.data.main.temp,
-      description: response.data.weather[0].description,
       humidity: response.data.main.humidity,
+      description: response.data.weather[0].description,
       wind: response.data.wind.speed,
-      city: props.city,
+      city: response.data.name,
     });
-    console.log(response.data);
   }
 
-  if (ready) {
+  if (weatherData.ready) {
     return (
       <div className="Weather">
         <div className="Container">
@@ -30,7 +30,7 @@ export default function Weather(props) {
               <div className="row">
                 <div className="col-4">
                   <h1>{weatherData.city}</h1>
-                  <h2>Currently {weatherData.temperature}°F</h2>
+                  <h2>Currently {Math.round(weatherData.temperature)}°F</h2>
                   <p>Last updated: time</p>
                   <p>
                     <ReactAnimatedWeather
@@ -59,7 +59,7 @@ export default function Weather(props) {
                       Humidity: {weatherData.humidity}%
                     </li>
                     <li className="weatherDetails">
-                      Wind Speed: {weatherData.wind}mph
+                      Wind Speed: {Math.round(weatherData.wind)}mph
                     </li>
                   </ul>
                 </div>
