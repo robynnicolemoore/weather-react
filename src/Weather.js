@@ -3,6 +3,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import "./Weather.css";
 import ReactAnimatedWeather from "react-animated-weather";
 import axios from "axios";
+import FormattedDate from "./FormattedDate";
 
 export default function Weather(props) {
   const [ready, setReady] = useState({ ready: false });
@@ -18,6 +19,7 @@ export default function Weather(props) {
       description: response.data.weather[0].description,
       wind: response.data.wind.speed,
       city: response.data.name,
+      date: new Date(response.data.dt * 1000),
     });
   }
 
@@ -31,7 +33,9 @@ export default function Weather(props) {
                 <div className="col-4">
                   <h1>{weatherData.city}</h1>
                   <h2>Currently {Math.round(weatherData.temperature)}°F</h2>
-                  <p>Last updated: time</p>
+                  <p>
+                    <FormattedDate date={weatherData.date} />
+                  </p>
                   <p>
                     <ReactAnimatedWeather
                       icon={"CLEAR_DAY"}
