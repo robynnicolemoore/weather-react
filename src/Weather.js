@@ -4,6 +4,7 @@ import "./Weather.css";
 import ReactAnimatedWeather from "react-animated-weather";
 import axios from "axios";
 import FormattedDate from "./FormattedDate";
+import WeatherSearch from "./WeatherSearch";
 
 export default function Weather(props) {
   const [ready, setReady] = useState({ ready: false });
@@ -33,9 +34,9 @@ export default function Weather(props) {
                 <div className="col-4">
                   <h1>{weatherData.city}</h1>
                   <h2>Currently {Math.round(weatherData.temperature)}°F</h2>
-                  <p>
+                  <div>
                     <FormattedDate date={weatherData.date} />
-                  </p>
+                  </div>
                   <p>
                     <ReactAnimatedWeather
                       icon={"CLEAR_DAY"}
@@ -44,18 +45,7 @@ export default function Weather(props) {
                       animate={true}
                     />
                   </p>
-                  <form>
-                    <input
-                      type="search"
-                      placeholder="Type a city..."
-                      className="search"
-                    />
-                    <input
-                      type="submit"
-                      value="Search"
-                      className="searchButton"
-                    />
-                  </form>
+                  <WeatherSearch />
                 </div>
                 <div className="col-2">
                   <ul>
@@ -119,17 +109,6 @@ export default function Weather(props) {
               </div>
             </div>
           </div>
-          <p>
-            {" "}
-            <a
-              href="https://github.com/robynnicolemoore/weather-react"
-              target="_blank"
-              rel="noreferrer"
-            >
-              Open source code
-            </a>{" "}
-            by Robyn Moore{" "}
-          </p>
         </div>
       </div>
     );
