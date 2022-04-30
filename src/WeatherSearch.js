@@ -1,20 +1,18 @@
 import React, { useState } from "react";
 import axios from "axios";
-import displayWeather from "./Weather.js";
+import displayWeather from "./Weather";
 
-export default function WeatherSearch(props) {
-  const [city, setCity] = useState(props.city);
+export default function WeatherSearch(event) {
+  const [defaultCity, setDefaultCity] = useState("");
 
   function handleSubmit(event) {
     event.preventDefault();
     const apiKey = "c13ec1823489873786dad083e25adf72";
-    let city = "Madrid";
-    let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=imperial`;
+    let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${defaultCity}&appid=${apiKey}&units=imperial`;
     axios.get(apiUrl).then(displayWeather);
   }
   function changeCity(event) {
-    setCity(event.target.value);
-    displayWeather(city);
+    setDefaultCity(event.target.value);
   }
 
   return (
@@ -30,7 +28,7 @@ export default function WeatherSearch(props) {
           type="submit"
           value="Search"
           className="searchButton"
-          onClick={handleSubmit}
+          onSubmit={handleSubmit}
         />
       </form>
     </div>

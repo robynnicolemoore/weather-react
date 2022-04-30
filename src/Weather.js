@@ -5,10 +5,12 @@ import ReactAnimatedWeather from "react-animated-weather";
 import axios from "axios";
 import FormattedDate from "./FormattedDate";
 import WeatherSearch from "./WeatherSearch";
+import weatherData from "./WeatherSearch";
+import displayWeather from "./WeatherSearch";
 
 export default function Weather(props) {
-  const [ready, setReady] = useState({ ready: false });
-  const [weatherData, setWeatherData] = useState({});
+  const [ready, setReady] = useState(false);
+  const [weatherData, setWeatherData] = useState({ ready: false });
   function displayWeather(response) {
     setReady({
       ready: true,
@@ -114,8 +116,8 @@ export default function Weather(props) {
     );
   } else {
     const apiKey = "c13ec1823489873786dad083e25adf72";
-    let city = "Madrid";
-    let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=imperial`;
+    let defaultCity = "Madrid";
+    let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${defaultCity}&appid=${apiKey}&units=imperial`;
     axios.get(apiUrl).then(displayWeather);
     return "Loading...";
   }
