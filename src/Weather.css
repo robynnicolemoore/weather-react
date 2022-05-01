@@ -20,14 +20,17 @@ p {
 .search {
   height: 42px;
   padding-right: 10px;
+  position: relative;
+  left: -200px;
 }
 .searchButton {
   color: white;
   background-color: #757bc8;
-  float: right;
   border-radius: 15px;
   padding: 8px 15px;
   font-size: 20px;
+  position: relative;
+  left: -190px;
 }
 
 .searchButton:hover {
@@ -40,8 +43,13 @@ p {
   text-align: left;
   color: #240046;
   font-size: 20px;
+  position: relative;
+  right: 80px;
+  line-height: 0.5;
 }
 
 .forecast {
   text-align: center;
+  position: relative;
+  right: 300px;
 }
