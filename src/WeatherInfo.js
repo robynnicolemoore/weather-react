@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import axios from "axios";
 import ReactAnimatedWeather from "react-animated-weather";
 import "./Weather.css";
+import FormattedDate from "./FormattedDate";
 
 export default function WeatherInfo() {
   const [weatherData, setWeatherData] = useState({ ready: false });
@@ -24,7 +25,7 @@ export default function WeatherInfo() {
           <div className="col">
             <h1>{weatherData.city}</h1>
             <h2>Currently {weatherData.temperature}°F</h2>
-            <p>Date</p>
+            <FormattedDate date={weatherData.date} />
             <div>
               <ReactAnimatedWeather
                 icon={"CLEAR_DAY"}
