@@ -18,7 +18,7 @@ export default function Weather(props) {
       humidity: response.data.main.humidity,
       date: new Date(response.data.dt * 1000),
     });
-    console.log(response.data);
+
   }
 
   function handleSubmit(event) {
