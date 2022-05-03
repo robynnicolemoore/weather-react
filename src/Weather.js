@@ -4,7 +4,7 @@ import "./Weather.css";
 import WeatherInfo from "./WeatherInfo";
 import axios from "axios";
 
-export default function Weather() {
+export default function Weather(props) {
   const [city, setCity] = useState("Madrid");
   const [weatherData, setWeatherData] = useState({ ready: false });
 
@@ -41,19 +41,14 @@ export default function Weather() {
     return (
       <div className="Weather">
         <WeatherInfo data={weatherData} />
-        <form onSubmit={handleResponse}>
+        <form onSubmit={handleSubmit}>
           <input
-            type="text"
+            type="search"
             placeholder="Type a city..."
             className="search"
             onChange={cityChange}
           />
-          <input
-            type="submit"
-            value="Search"
-            className="searchButton"
-            onClick={handleSubmit}
-          />
+          <input type="submit" value="Search" className="searchButton" />
         </form>
       </div>
     );
