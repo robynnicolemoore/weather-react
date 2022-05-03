@@ -4,8 +4,8 @@ import "./Weather.css";
 import WeatherInfo from "./WeatherInfo";
 import axios from "axios";
 
-export default function Weather(props) {
-  const [city, setCity] = useState(props.city);
+export default function Weather() {
+  const [city, setCity] = useState("Madrid");
   const [weatherData, setWeatherData] = useState({ ready: false });
 
   function handleResponse(response) {
@@ -23,7 +23,7 @@ export default function Weather(props) {
 
   function handleSubmit(event) {
     event.preventDefault();
-    search(city);
+    search();
   }
 
   function cityChange(event) {
@@ -41,9 +41,9 @@ export default function Weather(props) {
     return (
       <div className="Weather">
         <WeatherInfo data={weatherData} />
-        <form onSubmit={handleSubmit}>
+        <form onSubmit={handleResponse}>
           <input
-            type="search"
+            type="text"
             placeholder="Type a city..."
             className="search"
             onChange={cityChange}
