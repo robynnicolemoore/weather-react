@@ -3,7 +3,7 @@ import Weather from "./Weather";
 function App() {
   return (
     <div className="App">
-      <Weather defaultCity="Madrid" />
+      <Weather city="Madrid" />
       <p>
         <a
           href="https://github.com/robynnicolemoore/weather-react"

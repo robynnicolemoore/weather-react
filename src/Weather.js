@@ -3,8 +3,9 @@ import "bootstrap/dist/css/bootstrap.css";
 import "./Weather.css";
 import WeatherInfo from "./WeatherInfo";
 import axios from "axios";
+
 export default function Weather() {
-  const [city, setCity] = useState("");
+  const [city, setCity] = useState("Madrid");
   const [weatherData, setWeatherData] = useState({ ready: false });
 
   function handleResponse(response) {
@@ -29,16 +30,16 @@ export default function Weather() {
   }
 
   function search() {
-    const apiKey = "c13ec1823489873786dad083e25adf72";
-    let defaultCity = "Madrid";
-    let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${defaultCity}&appid=${apiKey}&units=imperial`;
+    const apiKey = "512fdc436870661a029a84285db6b3f9";
+    let city = "Madrid";
+    let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=imperial`;
     axios.get(apiUrl).then(handleResponse);
   }
 
   if (weatherData.ready) {
     return (
       <div className="Weather">
-        <WeatherInfo />
+        <WeatherInfo data={weatherData} />
         <form onSubmit={handleSubmit}>
           <input
             type="search"
