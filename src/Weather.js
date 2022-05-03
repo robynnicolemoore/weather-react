@@ -4,8 +4,8 @@ import "./Weather.css";
 import WeatherInfo from "./WeatherInfo";
 import axios from "axios";
 
-export default function Weather() {
-  const [city, setCity] = useState("Madrid");
+export default function Weather(props) {
+  const [city, setCity] = useState(props.city);
   const [weatherData, setWeatherData] = useState({ ready: false });
 
   function handleResponse(response) {
@@ -18,11 +18,12 @@ export default function Weather() {
       humidity: response.data.main.humidity,
       date: new Date(response.data.dt * 1000),
     });
+    console.log(response.data);
   }
 
   function handleSubmit(event) {
     event.preventDefault();
-    search();
+    search(city);
   }
 
   function cityChange(event) {
