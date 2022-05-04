@@ -11,7 +11,7 @@ export default function WeatherInfo(props) {
       <div className="row">
         <div className="col">
           <h1>{props.data.city}</h1>
-          <Temperature />
+          <Temperature fahrenheit={props.data.temperature} />
           <FormattedDate date={props.data.date} />
           <div>
             <WeatherIcon code={props.data.icon} />

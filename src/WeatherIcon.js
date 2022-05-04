@@ -22,7 +22,7 @@ export default function WeatherIcon(props) {
     "50d": "FOG",
     "50n": "FOG",
   };
-  if (props.code == "01d") {
+  if (props.code === "01d") {
     return (
       <ReactAnimatedWeather
         icon={codeMapping[props.code]}
