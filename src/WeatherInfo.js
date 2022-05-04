@@ -2,6 +2,7 @@ import React from "react";
 import ReactAnimatedWeather from "react-animated-weather";
 import "./Weather.css";
 import FormattedDate from "./FormattedDate";
+import WeatherIcon from "./WeatherIcon";
 
 export default function WeatherInfo(props) {
   return (
@@ -12,11 +13,7 @@ export default function WeatherInfo(props) {
           <h2>Currently {props.data.temperature}°F</h2>
           <FormattedDate date={props.data.date} />
           <div>
-            <ReactAnimatedWeather
-              icon={"CLEAR_DAY"}
-              color={"goldenrod"}
-              size={100}
-            />
+            <WeatherIcon code={props.data.icon} />
           </div>
           <h3 className="text-capitalize">{props.data.description}</h3>
         </div>
