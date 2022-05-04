@@ -3,6 +3,7 @@ import ReactAnimatedWeather from "react-animated-weather";
 import "./Weather.css";
 import FormattedDate from "./FormattedDate";
 import WeatherIcon from "./WeatherIcon";
+import Temperature from "./Temperature";
 
 export default function WeatherInfo(props) {
   return (
@@ -10,7 +11,7 @@ export default function WeatherInfo(props) {
       <div className="row">
         <div className="col">
           <h1>{props.data.city}</h1>
-          <h2>Currently {props.data.temperature}°F</h2>
+          <Temperature />
           <FormattedDate date={props.data.date} />
           <div>
             <WeatherIcon code={props.data.icon} />
