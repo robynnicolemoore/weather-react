@@ -21,7 +21,8 @@ export default function Forecast(props) {
           size={20}
         />
         <p>
-          {forecast[1].temp.min}°F | {forecast[1].temp.max}°F
+          {Math.round(forecast[1].temp.min)}°F |{" "}
+          {Math.round(forecast[1].temp.max)}°F
         </p>
         <h4>{forecast[2].dt}</h4>
         <ReactAnimatedWeather
@@ -30,7 +31,8 @@ export default function Forecast(props) {
           size={20}
         />
         <p>
-          {forecast[2].temp.min}°F | {forecast[2].temp.max}°F
+          {Math.round(forecast[2].temp.min)}°F |{" "}
+          {Math.round(forecast[2].temp.max)}°F
         </p>
         <h4>{forecast[3].dt}</h4>
         <ReactAnimatedWeather
@@ -39,7 +41,8 @@ export default function Forecast(props) {
           size={20}
         />
         <p>
-          {forecast[3].temp.min}°F | {forecast[3].temp.max}°F
+          {Math.round(forecast[3].temp.min)}°F |{" "}
+          {Math.round(forecast[3].temp.max)}°F
         </p>
         <h4>{forecast[4].dt}</h4>
         <ReactAnimatedWeather
@@ -48,7 +51,8 @@ export default function Forecast(props) {
           size={20}
         />
         <p>
-          {forecast[4].temp.min}°F | {forecast[4].temp.max}°F
+          {Math.round(forecast[4].temp.min)}°F |{" "}
+          {Math.round(forecast[4].temp.max)}°F
         </p>
       </div>
     );
