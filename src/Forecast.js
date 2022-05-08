@@ -4,8 +4,8 @@ import "./Forecast.css";
 import ForecastDay from "./ForecastDay";
 
 export default function Forecast(props) {
-  const [loaded, setLoaded] = useState(false);
-  const [forecast, setForecast] = useState(null);
+  let [loaded, setLoaded] = useState(false);
+  let [forecast, setForecast] = useState(null);
 
   function handleResponse(response) {
     setForecast(response.data.daily);
@@ -18,9 +18,9 @@ export default function Forecast(props) {
         <div className="row">
           <div className="col">
             {forecast.map(function (dailyForecast, index) {
-              if (index < 4) {
+              if (index >= 1 && index < 5) {
                 return (
-                  <div className="col">
+                  <div className="col" key={index}>
                     <ForecastDay data={dailyForecast} />
                   </div>
                 );
@@ -36,5 +36,7 @@ export default function Forecast(props) {
     let longitude = props.coordinates.lon;
     let apiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${latitude}&lon=${longitude}&appid=${apiKey}&units=imperial`;
     axios.get(apiUrl).then(handleResponse);
+
+    return null;
   }
 }
