@@ -4,6 +4,7 @@ import FormattedDate from "./FormattedDate";
 import WeatherIcon from "./WeatherIcon";
 import Temperature from "./Temperature";
 import Forecast from "./Forecast";
+import "./WeatherInfo.css";
 
 export default function WeatherInfo(props) {
   return (
@@ -14,11 +15,7 @@ export default function WeatherInfo(props) {
           <Temperature fahrenheit={props.data.temperature} />
           <FormattedDate date={props.data.date} />
           <div>
-            <WeatherIcon
-              code={props.data.icon}
-              size={100}
-              className="WeatherIcon"
-            />
+            <WeatherIcon code={props.data.icon} className="WeatherIcon" />
           </div>
           <h3 className="text-capitalize">{props.data.description}</h3>
         </div>

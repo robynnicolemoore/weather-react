@@ -16,37 +16,19 @@ export default function Forecast(props) {
   if (loaded) {
     return (
       <div className="Forecast">
-        <ForecastDay data={forecast[1]} size={20} />
-        <h4>{forecast[2].dt}</h4>
-        <ReactAnimatedWeather
-          icon={"CLEAR_DAY"}
-          color={"goldenrod"}
-          size={20}
-        />
-        <p>
-          {Math.round(forecast[2].temp.min)}°F |{" "}
-          {Math.round(forecast[2].temp.max)}°F
-        </p>
-        <h4>{forecast[3].dt}</h4>
-        <ReactAnimatedWeather
-          icon={"CLEAR_DAY"}
-          color={"goldenrod"}
-          size={20}
-        />
-        <p>
-          {Math.round(forecast[3].temp.min)}°F |{" "}
-          {Math.round(forecast[3].temp.max)}°F
-        </p>
-        <h4>{forecast[4].dt}</h4>
-        <ReactAnimatedWeather
-          icon={"CLEAR_DAY"}
-          color={"goldenrod"}
-          size={20}
-        />
-        <p>
-          {Math.round(forecast[4].temp.min)}°F |{" "}
-          {Math.round(forecast[4].temp.max)}°F
-        </p>
+        <div className="row">
+          <div className="col">
+            {forecast.map(function (dailyForecast, index) {
+              if (index < 5) {
+                return (
+                  <div className="col" key={index}>
+                    <ForecastDay data={dailyForecast} />
+                  </div>
+                );
+              }
+            })}
+          </div>
+        </div>
       </div>
     );
   } else {

@@ -1,5 +1,6 @@
 import React from "react";
 import WeatherIcon from "./WeatherIcon";
+import "./ForecastDay.css";
 
 export default function ForecastDay(props) {
   function day() {
@@ -23,8 +24,9 @@ export default function ForecastDay(props) {
       <h4>{day()}</h4>
       <WeatherIcon
         code={props.data.weather[0].icon}
-        className="forecastIcon"
-        aspect-ratio={200}
+        color={"#240046"}
+        size={20}
+        animated={true}
       />
       <p>
         {Math.round(props.data.temp.min)}°F | {Math.round(props.data.temp.max)}
