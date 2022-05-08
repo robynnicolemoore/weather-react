@@ -1,7 +1,9 @@
 import React, { useState } from "react";
 import ReactAnimatedWeather from "react-animated-weather";
 import axios from "axios";
-
+import WeatherIcon from "./WeatherIcon";
+import "./Forecast.css";
+import ForecastDay from "./ForecastDay";
 export default function Forecast(props) {
   const [loaded, setLoaded] = useState(false);
   const [forecast, setForecast] = useState(null);
@@ -14,16 +16,7 @@ export default function Forecast(props) {
   if (loaded) {
     return (
       <div className="Forecast">
-        <h4>{forecast[1].dt}</h4>
-        <ReactAnimatedWeather
-          icon={"CLEAR_DAY"}
-          color={"goldenrod"}
-          size={20}
-        />
-        <p>
-          {Math.round(forecast[1].temp.min)}°F |{" "}
-          {Math.round(forecast[1].temp.max)}°F
-        </p>
+        <ForecastDay data={forecast[1]} size={20} />
         <h4>{forecast[2].dt}</h4>
         <ReactAnimatedWeather
           icon={"CLEAR_DAY"}

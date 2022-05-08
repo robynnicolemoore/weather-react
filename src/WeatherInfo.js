@@ -14,7 +14,11 @@ export default function WeatherInfo(props) {
           <Temperature fahrenheit={props.data.temperature} />
           <FormattedDate date={props.data.date} />
           <div>
-            <WeatherIcon code={props.data.icon} />
+            <WeatherIcon
+              code={props.data.icon}
+              size={100}
+              className="WeatherIcon"
+            />
           </div>
           <h3 className="text-capitalize">{props.data.description}</h3>
         </div>
@@ -26,7 +30,7 @@ export default function WeatherInfo(props) {
         </div>
         <div className="col">
           <span className="forecast">
-            <Forecast coordinates={props.data.coordinates} />
+            <Forecast coordinates={props.data.coordinates} size={20} />
           </span>
         </div>
       </div>
