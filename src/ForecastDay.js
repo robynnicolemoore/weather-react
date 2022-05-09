@@ -33,12 +33,10 @@ export default function ForecastDay(props) {
       <WeatherIcon
         code={props.data.weather[0].icon}
         color={"#240046"}
-        size={20}
-        className="forecastIcon"
+        size="20"
       />
       <p>
-        {minTemperature()} °F | {maxTemperature()}
-        °F
+        {minTemperature()} °F | {maxTemperature()} °F
       </p>
     </div>
   );
