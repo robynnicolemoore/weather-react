@@ -6,14 +6,30 @@ import ForecastDay from "./ForecastDay";
 export default function Forecast(props) {
   let [loaded, setLoaded] = useState(false);
   let [forecast, setForecast] = useState(null);
+  let [error, setError] = useState(null);
 
   useEffect(() => {
     setLoaded(false);
+    setError(null);
+    const apiKey = "c13ec1823489873786dad083e25adf72";
+    let latitude = props.coordinates.lat;
+    let longitude = props.coordinates.lon;
+    let apiUrl = `https://api.openweathermap.org/data/4.0/onecall?lat=${latitude}&lon=${longitude}&appid=${apiKey}&units=imperial`;
+    axios.get(apiUrl).then(handleResponse).catch(handleError);
   }, [props.coordinates]);
 
   function handleResponse(response) {
     setForecast(response.data.daily);
     setLoaded(true);
+  }
+
+  function handleError() {
+    setError("Forecast unavailable.");
+    setLoaded(true);
+  }
+
+  if (error) {
+    return <p className="error">{error}</p>;
   }
 
   if (loaded) {
@@ -37,12 +53,6 @@ export default function Forecast(props) {
       </div>
     );
   } else {
-    const apiKey = "c13ec1823489873786dad083e25adf72";
-    let latitude = props.coordinates.lat;
-    let longitude = props.coordinates.lon;
-    let apiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${latitude}&lon=${longitude}&appid=${apiKey}&units=imperial`;
-    axios.get(apiUrl).then(handleResponse);
-
     return null;
   }
 }
