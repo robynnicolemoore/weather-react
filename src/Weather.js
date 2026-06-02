@@ -32,6 +32,7 @@ export default function Weather(props) {
   }
 
   function search() {
+    setError(null);
     const apiKey = "512fdc436870661a029a84285db6b3f9";
     let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=imperial`;
     axios.get(apiUrl).then(handleResponse).catch(handleError);
@@ -46,6 +47,7 @@ export default function Weather(props) {
     return (
       <div className="Weather">
         <WeatherInfo data={weatherData} />
+      {error && <p className="error">{error}</p>}
         <form onSubmit={handleSubmit}>
           <input
             type="search"
