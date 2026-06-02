@@ -44,8 +44,11 @@ export default function Weather(props) {
     axios.get(apiUrl).then(handleResponse).catch(handleError);
   }
 
-  useEffect(() => {
-    search();
+useEffect(() => {
+    setError(null);
+    const apiKey = "512fdc436870661a029a84285db6b3f9";
+    let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=Madrid&appid=${apiKey}&units=imperial`;
+    axios.get(apiUrl).then(handleResponse).catch(handleError);
   }, []);
 
   if (weatherData.ready) {
