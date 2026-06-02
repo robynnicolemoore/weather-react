@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "bootstrap/dist/css/bootstrap.css";
 import "./Weather.css";
 import WeatherInfo from "./WeatherInfo";
@@ -44,6 +44,10 @@ export default function Weather(props) {
     axios.get(apiUrl).then(handleResponse).catch(handleError);
   }
 
+  useEffect(() => {
+    search();
+  }, []);
+
   if (weatherData.ready) {
     return (
       <div className="Weather">
@@ -76,7 +80,6 @@ export default function Weather(props) {
       </div>
     );
   } else {
-    search();
     return <p>Loading...</p>;
   }
 }
