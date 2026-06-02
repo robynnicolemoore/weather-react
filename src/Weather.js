@@ -7,6 +7,7 @@ import axios from "axios";
 export default function Weather(props) {
   const [city, setCity] = useState("Madrid");
   const [weatherData, setWeatherData] = useState({ ready: false });
+  const [error, setError] = useState(null);
 
   function handleResponse(response) {
     setWeatherData({
@@ -20,6 +21,11 @@ export default function Weather(props) {
       icon: response.data.weather[0].icon,
       coordinates: response.data.coord,
     });
+  }
+
+  function handleError() {
+    setError("City not found. Please try again.");
+    setWeatherData({ ready: false, failed: true });
   }
 
   function handleSubmit(event) {
@@ -37,17 +43,27 @@ export default function Weather(props) {
     let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=imperial`;
     axios.get(apiUrl).then(handleResponse).catch(handleError);
   }
-  const [error, setError] = useState(null);
-
-  function handleError(error) {
-  setError("City not found. Please try again.");
-}
 
   if (weatherData.ready) {
     return (
       <div className="Weather">
         <WeatherInfo data={weatherData} />
-      {error && <p className="error">{error}</p>}
+        {error && <p className="error">{error}</p>}
+        <form onSubmit={handleSubmit}>
+          <input
+            type="search"
+            placeholder="Type a city..."
+            className="search"
+            onChange={cityChange}
+          />
+          <input type="submit" value="Search" className="searchButton" />
+        </form>
+      </div>
+    );
+  } else if (weatherData.failed) {
+    return (
+      <div className="Weather">
+        <p className="error">{error}</p>
         <form onSubmit={handleSubmit}>
           <input
             type="search"
@@ -61,6 +77,6 @@ export default function Weather(props) {
     );
   } else {
     search();
-    return "Loading...";
+    return <p>Loading...</p>;
   }
 }
